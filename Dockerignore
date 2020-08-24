@@ -1,0 +1,5 @@
+.coveragerc
+.coveralls.yml
+.gitignore
+.travis.yml
+Dockerfile
