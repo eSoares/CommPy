@@ -257,9 +257,9 @@ class LinkModel:
 
                 chunk_count[id_tx] += number_chunks_per_send
                 total_tx_send += 1
-            BERs[id_SNR] = bit_err.sum() / (total_tx_send * send_chunk)
+            BERs[id_SNR] = bit_err.sum() / (total_tx_send * send_chunk * number_chunks_per_send)
             BEs[id_SNR] = bit_err
-            CEs[id_SNR] = np.where(bit_err > 0, 1, 0)
+            CEs[id_SNR] = chunk_loss
             NCs[id_SNR] = chunk_count
             if BEs[id_SNR].sum() < err_min:
                 break
